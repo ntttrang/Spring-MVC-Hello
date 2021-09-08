@@ -9,5 +9,6 @@
 <body>
   <h1>Spring MVC Hello World!</h1>
   <a href="hello">hello</a>
+  <a href="getProducts">Get Products</a>
 </body>
 </html>

@@ -9,7 +9,7 @@ public class HelloController {
   public String index() {
     return "index";
   }
-  @RequestMapping(value = "/hello", method = RequestMethod.GET)
+  @RequestMapping(value = "/hi", method = RequestMethod.GET)
   public String hello() {
     return "hello";
   }

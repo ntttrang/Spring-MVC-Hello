@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>stackjava.com Demo Spring MVC FreeMarker</title>
+</head>
+<body>
+  <a href="hi">Say hello</a>
+  <a href="getProducts">Get Products</a>
+</body>
+</html>
