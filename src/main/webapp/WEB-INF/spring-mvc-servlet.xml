@@ -10,7 +10,7 @@
 
 	<!-- START: jsp config -->
 	<!-- <bean id="jspConfig" class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
-		<property name="prefix"> <value>/WEB-INF/views/freemarker/</value> </property> 
+		<property name="prefix"> <value>/WEB-INF/views/jsp/</value> </property> 
 		<property name="suffix"> <value>.jsp</value> </property> </bean> -->
 
 
@@ -33,12 +33,15 @@
 	<!-- View resolvers can also be configured with ResourceBundles or XML files. 
 		If you need different view resolving based on Locale, you have to use the 
 		resource bundle resolver. -->
-	<bean id="viewResolver"
+	<bean id="viewResolverFM"
 		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
 		<property name="prefix" value="" />
 		<property name="suffix" value=".fm" />
 	</bean>
 	<!-- END: freemarker config -->
-
+	
+	<!-- START import spring-webflow config -->
+	<import resource="spring-webflow-config.xml"/>
+	<!-- END import spring-webflow config -->
 
 </beans>

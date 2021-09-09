@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:webflow="http://www.springframework.org/schema/webflow-config"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/webflow-config
+           http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd">
+
+	<!-- ================================================================== -->
+	<!-- Spring Web Flow stuff -->
+	<!-- ================================================================== -->
+
+	<!-- This creates an XmlFlowRegistryFactory bean -->
+	<bean id="viewFactoryCreator"
+		class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
+		<property name="viewResolvers" ref="viewResolverFM" />
+	</bean>
+
+	<webflow:flow-builder-services id="flowBuilderServices" view-factory-creator="viewFactoryCreator" />
+
+	<webflow:flow-registry id="activationFlowRegistry"
+		flow-builder-services="flowBuilderServices">
+		<webflow:flow-location
+			id="activationFlow"
+			path="/WEB-INF/flows/activation-flow.xml" />
+	</webflow:flow-registry>
+
+	<webflow:flow-executor id="activationFlowExecutor"
+		flow-registry="activationFlowRegistry">
+	</webflow:flow-executor>
+
+	<!-- Enables FlowHandler URL mapping -->
+	<bean
+		class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
+		<property name="flowExecutor" ref="activationFlowExecutor" />
+	</bean>
+
+	<!-- Maps request paths to flows in the flowRegistry; e.g. a path of /hotels/booking 
+		looks for a flow with id "hotels/booking" -->
+	<bean
+		class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
+		<property name="flowRegistry" ref="activationFlowRegistry" />
+		<property name="order" value="0" />
+	</bean>
+
+
+</beans>

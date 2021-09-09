@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>stackjava.com Demo Spring MVC FreeMarker</title>
+  <title>Demo Spring MVC FreeMarker, Spring Webflow</title>
 </head>
 <body>
-  <a href="hi">Say hello</a>
-  <a href="getProducts">Get Products</a>
+    <h2>Click to activate account</h2>
+
+    <form method="post" action="${flowExecutionUrl}">
+        <input type="submit" name="_eventId_activate" value="activate" />
+        <input type="submit" name="_eventId_cancel" value="cancel" />
+    </form>
 </body>
 </html>

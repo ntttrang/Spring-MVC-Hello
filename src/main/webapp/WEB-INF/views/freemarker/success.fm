@@ -4,6 +4,7 @@
   <title>stackjava.com Demo Spring MVC FreeMarker</title>
 </head>
 <body>
-  <h2>Hello world!</h2>
+  <h2>Success</h2>
+  <a href="getProducts">Get Products</a>
 </body>
 </html>
