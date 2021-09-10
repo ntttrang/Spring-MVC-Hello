@@ -4,6 +4,7 @@
   <title>Demo Spring MVC FreeMarker</title>
 </head>
 <body>
+
   <table border = "1">
     <thead>
       <tr>
@@ -13,6 +14,12 @@
       </tr>
     </thead>
     <tbody>
+	    <#if products?size == 0>
+		<tr>
+			<td colspan="7">No products found</td>
+		</tr>
+		</#if>
+	
       <#list products as item>
       <tr>
         <td>${item.id}</td>

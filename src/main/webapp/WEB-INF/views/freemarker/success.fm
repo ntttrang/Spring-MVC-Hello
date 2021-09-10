@@ -5,6 +5,6 @@
 </head>
 <body>
   <h2>Success</h2>
-  <a href="getProducts">Get Products</a>
+  <a href="${flowExecutionUrl}&_eventId=viewProductList" name="_eventId_productList">View Products</a>
 </body>
 </html>
